@@ -1,0 +1,17 @@
+#root {
+  padding-top: 60px; /* Ajusta este número según la altura de tu Navbar */
+}
+
+@media (max-width: 1199px) {
+  /* Si el menú está abierto, añadimos un margen extra al contenedor principal */
+  .navbar-collapse.show ~ .galaxy-container,
+  .navbar-collapse.show ~ div {
+    margin-top: 20px;
+  }
+}
+
+.title {
+  font-size: calc(1.5rem + 3vw);
+  text-align: center;
+  margin-top: 20px;
+}

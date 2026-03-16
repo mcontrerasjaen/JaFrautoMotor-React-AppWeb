@@ -1,0 +1,24 @@
+.starwars-nav {
+    background-color: #1a1a1a !important; /* Un gris casi negro muy sólido */
+    border-bottom: 3px solid #ffe81f;    /* Línea amarilla estilo Star Wars abajo */
+    padding: 1rem 2rem;
+    z-index: 1000;
+    position: relative;
+}
+
+/* Estilo general de tus botones: FONDO NEGRO, LETRAS AMARILLAS */
+.btn-saber {
+    background-color: #000000 !important; /* Fondo negro total */
+    color: #ffe81f !important;           /* Letras amarillas Star Wars */
+    border: 2px solid #ffe81f;           /* Borde amarillo */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Efecto Hover: Se invierten los colores al pasar el mouse */
+.btn-saber:hover, .btn-saber.active {
+    background-color: currentColor !important; /* Usa el color del borde/texto actual */
+    color: #000000 !important;           
+    box-shadow: 0 0 15px currentColor;  
+}
