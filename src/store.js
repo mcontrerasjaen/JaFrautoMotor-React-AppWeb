@@ -1,52 +1,42 @@
 export const initialStore = () => {
- 
-  const persistencia = localStorage.getItem("starwars_store");
+  const persistencia = localStorage.getItem("taller_app_data");
   
   if (persistencia) {
-      return JSON.parse(persistencia);
+      try {
+          return JSON.parse(persistencia);
+      } catch (e) {
+          console.error("Error al leer el localStorage", e);
+      }
   }
 
-  
   return {
-    personajes: [],
-    naves: [],
-    planetas: [],
-    criaturas: [],
-    droides: [],
-    species: [],
-    organizaciones: [],
-    favoritos: [], 
-  }
-}
+    servicios: [],    
+    urgente: [],      
+    vehiculo: null,   
+    citas: [],        
+  };
+};
 
 export default function storeReducer(store, action = {}) {
- 
   switch (action.type) {
-    case 'set_personajes':
-      return { ...store, personajes: action.payload };
-    case 'set_naves':
-      return { ...store, naves: action.payload };
-    case 'set_planetas':
-      return { ...store, planetas: action.payload };
-      case 'set_criaturas':
-      return { ...store, criaturas: action.payload };
-       case 'set_droides':
-      return { ...store, droides: action.payload };
-      case 'set_species':
-      return { ...store, species: action.payload };
-      case 'set_organizaciones':
-      return { ...store, organizaciones: action.payload };
-    case 'toggle_favorito':
+    case 'set_servicios':
+      return { ...store, servicios: action.payload };
+
+    case 'toggle_urgente':
       const item = action.payload;
-      const existe = store.favoritos.some(fav => fav._id === item._id);
-      return {
+      const existe = store.urgente.some(serv => serv.id === item.id);
+      
+      const nuevoEstado = {
         ...store,
-        favoritos: existe 
-          ? store.favoritos.filter(fav => fav._id !== item._id) 
-          : [...store.favoritos, item]
+        urgente: existe 
+          ? store.urgente.filter(serv => serv.id !== item.id) 
+          : [...store.urgente, item]
       };
+
+      localStorage.setItem("taller_app_data", JSON.stringify(nuevoEstado));
+      return nuevoEstado;
+
     default:
       return store;
   }
 }
-

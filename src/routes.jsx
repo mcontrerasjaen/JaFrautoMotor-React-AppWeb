@@ -7,14 +7,15 @@ import {
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
-import { Personajes } from "./pages/Personajes";
-import { Naves } from "./pages/Naves";
-import { Planetas } from "./pages/Planetas";
-import { Criaturas } from "./pages/Criaturas";
-import { Droides } from "./pages/Droides";
-import { Species } from "./pages/Species";
-import { Organizaciones } from "./pages/Organizaciones";
-import { Favoritos } from "./pages/Favoritos";
+import { AvisoLegal } from "./pages/AvisoLegal";
+import { Presupuesto } from "./pages/Presupuesto";
+import { PoliticaPrivacidad } from "./pages/PoliticaPrivacidad";
+import { Servicios } from "./pages/Servicios";
+import { Taller } from "./pages/Taller";
+import { Promociones } from "./pages/Promociones";
+import { Urgente } from "./pages/Urgente";
+import { AccesoGestion } from "./pages/AccesoGestion";
+import { PanelInterno } from "./pages/PanelInterno";
 
 
 export const router = createBrowserRouter(
@@ -31,14 +32,15 @@ export const router = createBrowserRouter(
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="*" element={<h1 className="d-flex justify-content-center align-items-center text-white vh-100">Error: 404 - Perdido en el espacio</h1>} />
-        <Route path= "/personajes" element={<Personajes />} />
-        <Route path= "/naves" element={<Naves />} />
-        <Route path= "/planetas" element={<Planetas />} />
-        <Route path= "/criaturas" element={<Criaturas />} />
-        <Route path= "/droides" element={<Droides />} />
-        <Route path= "/species" element={<Species />} />
-        <Route path= "/organizaciones" element={<Organizaciones />} />
-        <Route path="/favoritos" element={<Favoritos />} /> 
+        <Route path= "/avisoLegal" element={<AvisoLegal />} />
+        <Route path="/presupuesto" element={<Presupuesto />} />
+        <Route path= "/politicaPrivacidad" element={<PoliticaPrivacidad />} />
+        <Route path= "/servicios" element={<Servicios />} />
+        <Route path= "/taller" element={<Taller />} />
+        <Route path="/promociones" element={<Promociones />} />
+        <Route path="/urgente" element={<Urgente />} />
+        <Route path="/gestion" element={<AccesoGestion />} />
+        <Route path="/panel-interno" element={<PanelInterno />} />
       </Route>
     )
 );
