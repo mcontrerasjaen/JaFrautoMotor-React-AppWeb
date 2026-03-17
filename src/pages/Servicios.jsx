@@ -2,7 +2,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Servicios = () => {
     const { store, dispatch } = useGlobalReducer();
-    const { urgente } = store;
+    const { urgente, busqueda } = store;
 
     // LISTA DE SERVICIOS (Asegúrate de que empiece con;
     const catalogoServicios = [
@@ -14,13 +14,18 @@ export const Servicios = () => {
         { id: 6, name: "Revisión Pre-ITV", precio: 20, icon: "fa-clipboard-check", description: "Chequeo de 50 puntos clave para pasar la ITV a la primera.", image: "preitv.png" }
     ];
 
+    const serviciosFiltrados = catalogoServicios.filter(serv =>
+        serv.name.toLowerCase().includes((busqueda || "").toLowerCase()) ||
+        serv.description.toLowerCase().includes((busqueda || "").toLowerCase())
+    );
+
     const manejarUrgente = (servicio) => {
         dispatch({ type: 'toggle_urgente', payload: servicio });
     };
 
     const totalEuros = store.urgente.reduce((acc, item) => acc + item.precio, 0);
 
-    return (
+     return (
         <div className="container mt-1 pt-4 text-dark">
             <div className="text-center mb-5">
                 <h1 className="fw-bold display-4">NUESTROS <span className="text-danger">SERVICIOS</span></h1>
@@ -28,47 +33,56 @@ export const Servicios = () => {
             </div>
 
             <div className="row g-4">
-    {catalogoServicios.map((serv) => {
-        const estaEnUrgente = urgente.some(item => item.id === serv.id);
+                {/* 3. MAPEAMOS LA LISTA FILTRADA */}
+                {serviciosFiltrados.length > 0 ? (
+                    serviciosFiltrados.map((serv) => {
+                        const estaEnUrgente = urgente.some(item => item.id === serv.id);
 
-        return (
-            <div className="col-md-6 col-lg-4" key={serv.id}>
-                <div className="card h-100 shadow-sm border-0 overflow-hidden">
-                    <div className="position-relative">
-                        {/* ETIQUETA DE PRECIO AÑADIDA */}
-                        <div className="position-absolute top-0 start-0 m-3" style={{ zIndex: 10 }}>
-                            <span className="bg-dark text-white fw-bold px-3 py-1 shadow-sm border-start border-4 border-danger">
-                                {serv.precio}€
-                            </span>
-                        </div>
+                        return (
+                            <div className="col-md-6 col-lg-4" key={serv.id}>
+                                <div className="card h-100 shadow-sm border-0 overflow-hidden">
+                                    <div className="position-relative">
+                                        <div className="position-absolute top-0 start-0 m-3" style={{ zIndex: 10 }}>
+                                            <span className="bg-dark text-white fw-bold px-3 py-1 shadow-sm border-start border-4 border-danger">
+                                                {serv.precio}€
+                                            </span>
+                                        </div>
 
-                        <img src={serv.image} className="card-img-top" alt={serv.name} style={{ height: "200px", objectFit: "cover" }} />
-                        <div className="position-absolute top-0 end-0 m-3">
-                            <i className={`fa-solid ${serv.icon} fa-2x text-white p-2 bg-danger rounded`}></i>
-                        </div>
-                    </div>
+                                        <img src={serv.image} className="card-img-top" alt={serv.name} style={{ height: "200px", objectFit: "cover" }} />
+                                        <div className="position-absolute top-0 end-0 m-3">
+                                            <i className={`fa-solid ${serv.icon} fa-2x text-white p-2 bg-danger rounded`}></i>
+                                        </div>
+                                    </div>
 
-                    <div className="card-body d-flex flex-column">
-                        <h5 className="card-title fw-bold text-uppercase">{serv.name}</h5>
-                        <p className="card-text text-secondary small flex-grow-1">{serv.description}</p>
+                                    <div className="card-body d-flex flex-column">
+                                        <h5 className="card-title fw-bold text-uppercase">{serv.name}</h5>
+                                        <p className="card-text text-secondary small flex-grow-1">{serv.description}</p>
 
-                        <button
-                            onClick={() => manejarUrgente(serv)}
-                            className={`btn w-100 fw-bold mt-3 rounded-0 py-2 transition-all ${estaEnUrgente ? "btn-dark" : "btn-outline-danger"
-                                }`}
-                        >
-                            {estaEnUrgente ? (
-                                <> <i className="fa-solid fa-check me-2"></i>AÑADIDO A CITA</>
-                            ) : (
-                                <> <i className="fa-solid fa-plus me-2"></i>AÑADIR A MI CITA</>
-                            )}
+                                        <button
+                                            onClick={() => manejarUrgente(serv)}
+                                            className={`btn w-100 fw-bold mt-3 rounded-0 py-2 transition-all ${estaEnUrgente ? "btn-dark" : "btn-outline-danger"}`}
+                                        >
+                                            {estaEnUrgente ? (
+                                                <> <i className="fa-solid fa-check me-2"></i>AÑADIDO A CITA</>
+                                            ) : (
+                                                <> <i className="fa-solid fa-plus me-2"></i>AÑADIR A MI CITA</>
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    /* Mensaje por si no hay resultados */
+                    <div className="col-12 text-center py-5">
+                        <h3 className="text-muted">No hay resultados para "{busqueda}"</h3>
+                        <button className="btn btn-outline-danger mt-3" onClick={() => dispatch({ type: 'set_busqueda', payload: "" })}>
+                            Limpiar búsqueda
                         </button>
                     </div>
-                </div>
+                )}
             </div>
-        );
-    })}
-</div>
 
             {/* Banner inferior de acción rápida */}
             <div className="bg-danger text-white p-4 mt-5 rounded shadow text-center">

@@ -1,12 +1,27 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
-  const { store } = useGlobalReducer();
+  const { store, dispatch } = useGlobalReducer();
+  const navigate = useNavigate(); // <--- ESTA ES LA LÍNEA QUE FALTABA
+  
   const [busqueda, setBusqueda] = useState("");
   const totalUrgentes = store?.urgente?.length || 0;
   const totalEuros = store.urgente.reduce((acc, item) => acc + (Number(item.precio) || 0), 0);
+
+  const handleBusqueda = (e) => {
+    const valor = e.target.value;
+    setBusqueda(valor);
+
+    // Actualizamos el store siempre para que el filtro funcione en tiempo real
+    dispatch({ type: "set_busqueda", payload: valor });
+
+    // Si el usuario escribe algo, lo mandamos a la página de servicios
+    if (valor.length > 0) {
+      navigate("/servicios");
+    }
+  };
 
   return (
     <nav className="navbar navbar-expand-xl px-4 py-2 sticky-top shadow-sm"
@@ -19,10 +34,10 @@ export const Navbar = () => {
           className="navbar-brand fw-bold fs-3 text-black m-0 p-0 me-4"
           style={{
             position: "relative",
-            zIndex: 9999,      // Máxima prioridad visual
+            zIndex: 9999,
             display: "inline-block",
             cursor: "pointer",
-            pointerEvents: "auto" // Asegura que reciba clics
+            pointerEvents: "auto"
           }}
         >
           JAFRAUTO<span className="text-danger">MOTOR</span>
@@ -78,16 +93,16 @@ export const Navbar = () => {
               <input
                 type="text"
                 className="form-control border-danger shadow-none bg-light"
-                placeholder="Matrícula o servicio..."
+                placeholder="Buscar servicio..."
                 style={{ borderRadius: "0", fontSize: "0.85rem" }}
                 value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
+                onChange={handleBusqueda}
               />
               <i className="fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-3 text-danger opacity-50"></i>
             </div>
           </div>
 
-          {/* --- BOTÓN CITA URGENTE --- */}
+          {/* --- BOTÓN MI CITA / RESERVAR --- */}
           <div className="ms-xl-4 d-grid d-xl-block">
             <NavLink
               to="/urgente"

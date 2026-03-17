@@ -14,7 +14,8 @@ export const initialStore = () => {
     urgente: [],      
     vehiculo: null,   
     citas: [], 
-    cita_programada: { fecha: "", hora: "" }        
+    cita_programada: { fecha: "", hora: "" },  
+    busqueda: ""
   };
 };
 
@@ -22,6 +23,11 @@ export default function storeReducer(store, action = {}) {
   switch (action.type) {
     case 'set_servicios':
       return { ...store, servicios: action.payload };
+
+        case "set_busqueda":
+      // Actualizamos la búsqueda (no hace falta persistirla en localStorage si no quieres)
+      return { ...store, busqueda: action.payload };
+
     
     case 'set_fecha_cita':
     return { 
