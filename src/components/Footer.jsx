@@ -4,7 +4,7 @@ export const Footer = () => (
     <footer className="bg-dark text-white pt-5 pb-2 mt-auto" style={{ borderTop: "4px solid #fa0606" }}>
         <div className="container text-center text-md-start">
             <div className="row g-4 align-items-start">
-                
+
                 {/* COLUMNA 1: IDENTIDAD (Un poco más estrecha) */}
                 <div className="col-md-3">
                     <h4 className="fw-bold mb-3 text-uppercase">
@@ -27,21 +27,22 @@ export const Footer = () => (
                         <li className="mb-2"><Link to="/" className="text-secondary text-decoration-none hover-red">Inicio</Link></li>
                         <li className="mb-2"><Link to="/taller" className="text-secondary text-decoration-none hover-red">El Taller</Link></li>
                         <li className="mb-2"><Link to="/servicios" className="text-secondary text-decoration-none hover-red">Servicios</Link></li>
-						<li className="mb-2"><Link to="/presupuesto" className="text-secondary text-decoration-none hover-red">Presupuesto</Link></li>
+                        <li className="mb-2"><Link to="/presupuesto" className="text-secondary text-decoration-none hover-red">Presupuesto</Link></li>
                         <li className="mb-2"><Link to="/contacto" className="text-secondary text-decoration-none hover-red">Contacto</Link></li>
                     </ul>
                 </div>
 
                 {/* COLUMNA 3: CONTACTO Y MAPA (Ocupa el resto de la fila) */}
-                <div className="col-md-6">
+                <div className="col-md-6 text-center text-md-start"> {/* Añadido text-center para móvil */}
                     <h6 className="fw-bold text-uppercase text-danger mb-4">Contacto y Ubicación</h6>
                     <div className="row g-3">
                         {/* Datos de contacto */}
                         <div className="col-sm-6">
                             <ul className="list-unstyled small mb-0">
-                                <li className="mb-2 text-secondary d-flex align-items-start">
+                                {/* Ajustada la dirección: justify-content-center para móvil y start para PC */}
+                                <li className="mb-2 text-secondary d-flex align-items-start justify-content-center justify-content-md-start">
                                     <i className="fa-solid fa-location-dot me-2 text-danger mt-1"></i>
-                                    <span>Calle Bedmar, 118, Pol. Olivares<br/>23009 Jaén</span>
+                                    <span>Calle Bedmar, 118, Pol. Olivares<br />23009 Jaén</span>
                                 </li>
                                 <li className="mb-2">
                                     <a href="tel:+34637830670" className="text-secondary text-decoration-none hover-red d-block">
@@ -62,9 +63,9 @@ export const Footer = () => (
                         </div>
                         {/* Mapa */}
                         <div className="col-sm-6">
-                            <div className="shadow-sm border border-secondary overflow-hidden" style={{ borderRadius: "8px" }}>
+                            <div className="shadow-sm border border-secondary overflow-hidden mx-auto" style={{ borderRadius: "8px", maxWidth: "300px" }}>
                                 <iframe
-                                    src="https://www.google.com/maps/place/Jafrautomotor"
+                                    src="https://www.google.com"
                                     width="100%"
                                     height="110"
                                     style={{ border: 0, display: "block" }}
