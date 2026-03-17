@@ -110,7 +110,7 @@ export const Home = () => {
                 <div className="container text-center px-4">
                     <h2 className="fw-bold mb-4">¿Hablamos por <span className="text-danger">WhatsApp</span>?</h2>
                     <p className="mb-4 mx-auto" style={{ maxWidth: '600px' }}>Envíanos una foto de tu avería o la ficha técnica y te damos presupuesto inmediato.</p>
-                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="btn btn-success btn-lg px-5 shadow rounded-0">
+                    <a href="https://wa.me/659603058" target="_blank" rel="noopener noreferrer" className="btn btn-success btn-lg px-5 shadow rounded-0">
                         <i className="fa-brands fa-whatsapp me-2"></i> CONSULTAR AHORA
                     </a>
                 </div>

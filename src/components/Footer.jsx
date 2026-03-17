@@ -64,7 +64,7 @@ export const Footer = () => (
                         <div className="col-sm-6">
                             <div className="shadow-sm border border-secondary overflow-hidden" style={{ borderRadius: "8px" }}>
                                 <iframe
-                                    src="https://www.google.com"
+                                    src="https://www.google.com/maps/place/Jafrautomotor"
                                     width="100%"
                                     height="110"
                                     style={{ border: 0, display: "block" }}

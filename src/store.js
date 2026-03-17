@@ -13,7 +13,8 @@ export const initialStore = () => {
     servicios: [],    
     urgente: [],      
     vehiculo: null,   
-    citas: [],        
+    citas: [], 
+    cita_programada: { fecha: "", hora: "" }        
   };
 };
 
@@ -21,6 +22,12 @@ export default function storeReducer(store, action = {}) {
   switch (action.type) {
     case 'set_servicios':
       return { ...store, servicios: action.payload };
+    
+    case 'set_fecha_cita':
+    return { 
+        ...store, 
+        cita_programada: { ...store.cita_programada, ...action.payload } 
+    };
 
     case 'toggle_urgente':
       const item = action.payload;

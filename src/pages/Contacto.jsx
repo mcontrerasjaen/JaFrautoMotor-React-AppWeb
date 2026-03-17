@@ -71,7 +71,7 @@ export const Contacto = () => {
                             <p className="fw-bold text-danger">Cerrado</p>
                         </div>
 
-                        <a href="https://maps.app.goo.gl" target="_blank" rel="noopener noreferrer" className="btn btn-danger w-100 fw-bold rounded-0 py-2 mt-2">
+                        <a href="hhttps://www.google.com/maps/place/Jafrautomotor" target="_blank" rel="noopener noreferrer" className="btn btn-danger w-100 fw-bold rounded-0 py-2 mt-2">
                             <i className="fa-solid fa-route me-2"></i>CÓMO LLEGAR
                         </a>
                     </div>

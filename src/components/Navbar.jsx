@@ -6,6 +6,7 @@ export const Navbar = () => {
   const { store } = useGlobalReducer();
   const [busqueda, setBusqueda] = useState("");
   const totalUrgentes = store?.urgente?.length || 0;
+  const totalEuros = store.urgente.reduce((acc, item) => acc + (Number(item.precio) || 0), 0);
 
   return (
     <nav className="navbar navbar-expand-xl px-4 py-2 sticky-top shadow-sm"
@@ -93,13 +94,13 @@ export const Navbar = () => {
               className={({ isActive }) =>
                 `btn fw-bold position-relative rounded-0 pulse-urgente ${isActive ? "bg-danger text-white" : "btn-outline-danger"}`
               }
-              style={{ transition: "0.3s" }}
+              style={{ transition: "0.3s", zIndex: 9999, pointerEvents: "auto" }}
             >
-              <i className="fa-solid fa-truck-medical me-2"></i>
-              CITA URGENTE
-              {totalUrgentes > 0 && (
+              <i className="fa-solid fa-cart-shopping me-2"></i>
+              RESERVAR: ({totalEuros}€)
+              {store.urgente.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark border border-white">
-                  {totalUrgentes}
+                  {store.urgente.length}
                 </span>
               )}
             </NavLink>
