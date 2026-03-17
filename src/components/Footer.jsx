@@ -14,8 +14,9 @@ export const Footer = () => (
                         Tu taller de confianza en Jaén. Calidad y rapidez en el Polígono de los Olivares.
                     </p>
                     <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-                        <a href="#" className="btn btn-outline-light btn-sm rounded-circle"><i className="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" className="btn btn-outline-light btn-sm rounded-circle"><i className="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/jafrauto/?locale=es_LA" className="btn btn-outline-light btn-sm rounded-circle"><i className="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/jafrauto/" className="btn btn-outline-light btn-sm rounded-circle"><i className="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/tag/jafrautomotor" className="btn btn-outline-light btn-sm rounded-circle"><i className="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -40,7 +41,7 @@ export const Footer = () => (
                             <ul className="list-unstyled small mb-0">
                                 <li className="mb-2 text-secondary d-flex align-items-start">
                                     <i className="fa-solid fa-location-dot me-2 text-danger mt-1"></i>
-                                    <span>C. Bedmar, 118, Pol. Olivares<br/>23009 Jaén</span>
+                                    <span>Calle Bedmar, 118, Pol. Olivares<br/>23009 Jaén</span>
                                 </li>
                                 <li className="mb-2">
                                     <a href="tel:+34637830670" className="text-secondary text-decoration-none hover-red d-block">
