@@ -37,7 +37,7 @@ export const Layout = () => {
             </footer>
 
             {/* BOTÓN WHATSAPP: Lo dejamos fijo para que siempre puedan contactar */}
-            <a href="https://wa.me" className="btn-whatsapp shadow-lg">
+            <a href="https://wa.me/659603058" className="btn-whatsapp shadow-lg">
                 <i className="fa-brands fa-whatsapp"></i>
             </a>
 

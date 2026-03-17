@@ -81,7 +81,7 @@ export const Contacto = () => {
                 <div className="col-lg-8">
                     <div className="shadow-lg h-100" style={{ minHeight: "400px", borderRadius: "10px", overflow: "hidden", border: "1px solid #ddd" }}>
                         <iframe 
-                            src="https://www.google.com" 
+                            src="https://www.google.com/maps/place/Jafrautomotor" 
                             width="100%" 
                             height="100%" 
                             style={{ border: 0, minHeight: "400px" }} 
