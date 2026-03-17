@@ -77,7 +77,7 @@ export const Urgente = () => {
                 {/* LADO IZQUIERDO: EL CARRITO DE SERVICIOS */}
                 <div className="col-lg-7">
                     <h2 className="fw-bold mb-4 border-start border-4 border-danger ps-3 text-uppercase">
-                        Mi Cita de <span className="text-danger">Trabajo</span> ({urgente?.length || 0})
+                        Mi Reserva de <span className="text-danger">Reparación</span> ({urgente?.length || 0})
                     </h2>
 
                     {!urgente || urgente.length === 0 ? (
@@ -117,7 +117,7 @@ export const Urgente = () => {
                 {/* LADO DERECHO: RESUMEN Y AGENDAR */}
                 <div className="col-lg-5">
                     <div className="card bg-dark text-white p-4 rounded-0 shadow-lg sticky-top" style={{ top: '120px' }}>
-                        <h4 className="fw-bold mb-4 text-uppercase border-bottom border-danger pb-2 text-danger text-center">Resumen de Cita</h4>
+                        <h4 className="fw-bold mb-4 text-uppercase border-bottom border-danger pb-2 text-danger text-center">Resumen de Reserva</h4>
                         
                         <div className="d-flex justify-content-between mb-2 opacity-75 small text-uppercase fw-bold">
                             <span>Subtotal Servicios:</span>
