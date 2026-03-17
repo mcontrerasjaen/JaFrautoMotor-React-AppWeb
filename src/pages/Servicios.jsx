@@ -20,7 +20,7 @@ export const Servicios = () => {
 
 
     return (
-        <div className="container mt-5 pt-4 text-dark">
+        <div className="container mt-1 pt-4 text-dark">
             <div className="text-center mb-5">
                 <h1 className="fw-bold display-4">NUESTROS <span className="text-danger">SERVICIOS</span></h1>
                 <p className="text-muted lead">Selecciona los mantenimientos que necesites para tu presupuesto urgente.</p>

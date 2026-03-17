@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Taller = () => {
     return (
-        <div className="container mt-5 pt-4 text-dark">
+        <div className="container mt-1 pt-4 text-dark">
             {/* SECCIÓN 1: INTRODUCCIÓN CON IMAGEN */}
             <div className="row align-items-center g-5 mb-5">
                 {/* COLUMNA DE TEXTO */}
@@ -44,7 +44,7 @@ export const Taller = () => {
                                 borderLeft: "8px solid #fa0606",
                                 objectFit: "cover",
                                 width: "100%",
-                                height: "300px"
+                                height: "auto"
                             }}
                         />
                     </div>

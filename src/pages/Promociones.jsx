@@ -32,7 +32,7 @@ export const Promociones = () => {
     ];
 
     return (
-        <div className="container mt-5 pt-4">
+        <div className="container mt-1 pt-4">
             <div className="text-center mb-5">
                 <h1 className="fw-bold display-4 text-uppercase">Ofertas <span className="text-danger">Especiales</span></h1>
                 <p className="text-secondary lead">Aprovecha nuestros descuentos exclusivos en JaFrauto Motor</p>
