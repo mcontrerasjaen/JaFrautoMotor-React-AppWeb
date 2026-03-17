@@ -5,36 +5,38 @@ import { Footer } from "../components/Footer";
 
 export const Layout = () => {
     return (
-        <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        /* Contenedor principal con Flexbox para empujar el footer al fondo */
+        <div style={{ 
+            display: "flex", 
+            flexDirection: "column", 
+            minHeight: "100vh" 
+        }}>
             <ScrollToTop />
 
+            {/* HEADER SIEMPRE FIJO (Es lo normal para navegar rápido) */}
             <header style={{ position: "fixed", top: 0, width: "100%", zIndex: 4000 }}>
                 <Navbar />
             </header>
 
-            {/* Aumentamos el paddingBottom para que el contenido de Servicios no sea tapado */}
-            <main style={{
-                flex: "1 0 auto",
-                paddingTop: "100px",    /* Espacio para el Navbar */
-                paddingBottom: "350px",  /* ESPACIO EXTRA PARA EL FOOTER GRANDE */
-                position: "relative"
+            {/* CONTENIDO PRINCIPAL: Ocupa todo el espacio disponible */}
+            <main style={{ 
+                flex: "1 0 auto",      /* Esto empuja el footer hacia abajo */
+                paddingTop: "100px",   /* Espacio para el Navbar */
+                paddingBottom: "50px"  /* Un margen sutil antes del footer */
             }}>
                 <Outlet />
             </main>
 
-            <footer style={{
-                position: "fixed",
-                bottom: 0,
-                width: "100%",
-                zIndex: 4000,
+            {/* FOOTER NATURAL: Ya no es fixed, aparece al final del scroll */}
+            <footer style={{ 
                 backgroundColor: "#1a1a1a",
-                borderTop: "3px solid #fa0606",
-                minHeight: "100px" // Asegura un mínimo de espacio
+                borderTop: "4px solid #fa0606",
+                width: "100%"
             }}>
                 <Footer />
             </footer>
 
-            {/* Botón WhatsApp - Ajustado para que no lo tape el nuevo footer */}
+            {/* BOTÓN WHATSAPP: Lo dejamos fijo para que siempre puedan contactar */}
             <a href="https://wa.me" className="btn-whatsapp shadow-lg">
                 <i className="fa-brands fa-whatsapp"></i>
             </a>
@@ -43,12 +45,17 @@ export const Layout = () => {
                 .btn-whatsapp {
                     position: fixed; 
                     right: 20px; 
-                    bottom: 320px; /* Lo subimos para que flote sobre el footer */
-                    background: #25d366; color: white; border-radius: 50%;
-                    width: 60px; height: 60px; display: flex;
+                    bottom: 30px; /* Ahora puede estar abajo del todo porque el footer no lo tapa */
+                    background: #25d366; 
+                    color: white; 
+                    border-radius: 50%;
+                    width: 60px; height: 60px; 
+                    display: flex;
                     align-items: center; justify-content: center;
                     font-size: 30px; z-index: 5000; text-decoration: none;
+                    transition: transform 0.3s ease;
                 }
+                .btn-whatsapp:hover { transform: scale(1.1); color: white; }
             `}</style>
         </div>
     );

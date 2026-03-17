@@ -11,6 +11,7 @@ import { AvisoLegal } from "./pages/AvisoLegal";
 import { Presupuesto } from "./pages/Presupuesto";
 import { PoliticaPrivacidad } from "./pages/PoliticaPrivacidad";
 import { Servicios } from "./pages/Servicios";
+import { Contacto } from "./pages/Contacto";
 import { Taller } from "./pages/Taller";
 import { Promociones } from "./pages/Promociones";
 import { Urgente } from "./pages/Urgente";
@@ -36,6 +37,7 @@ export const router = createBrowserRouter(
         <Route path="/presupuesto" element={<Presupuesto />} />
         <Route path= "/politicaPrivacidad" element={<PoliticaPrivacidad />} />
         <Route path= "/servicios" element={<Servicios />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path= "/taller" element={<Taller />} />
         <Route path="/promociones" element={<Promociones />} />
         <Route path="/urgente" element={<Urgente />} />

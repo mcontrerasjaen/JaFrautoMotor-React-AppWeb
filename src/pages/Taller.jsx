@@ -1,14 +1,28 @@
 import { Link } from "react-router-dom";
 
+
 export const Taller = () => {
     return (
         <div className="container mt-5 pt-4 text-dark">
             {/* SECCIÓN 1: INTRODUCCIÓN CON IMAGEN */}
             <div className="row align-items-center g-5 mb-5">
+                {/* COLUMNA DE TEXTO */}
                 <div className="col-lg-6">
-                    <h1 className="fw-bold display-4 mb-3 text-uppercase">
-                        Sobre <span className="text-danger">Nosotros</span>
-                    </h1>
+                    <div className="d-flex align-items-center mb-3">
+                        <h1 className="fw-bold display-4 mb-0 text-uppercase">
+                            Sobre <span className="text-danger">Nosotros</span>
+                        </h1>
+                        {/* EL DISTINTIVO AL LADO DEL TÍTULO */}
+                        <div className="bg-dark text-white p-3 shadow mt-3 mt-md-0 d-inline-block border-start border-4 border-danger"
+                            style={{ minWidth: "160px", transform: "skewX(-10deg)" }}> {/* Inclinación estilo Racing */}
+                            <div style={{ transform: "skewX(10deg)" }}> {/* Revertimos inclinación en el texto para que se lea recto */}
+                                <h4 className="fw-bold mb-0 text-danger text-center">+15 AÑOS</h4>
+                                <p className="small mb-0 text-uppercase fw-bold text-center" style={{ fontSize: "0.6rem", letterSpacing: "1px" }}>
+                                    Experiencia Real
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="bg-danger mb-4" style={{ width: "80px", height: "5px" }}></div>
                     <p className="lead fw-bold text-secondary">
                         JaFrauto Motor: Más que un taller, tu centro de confianza en Jaén.
@@ -22,16 +36,17 @@ export const Taller = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="position-relative">
-                        <img 
-                            src="https://images.unsplash.com" 
-                            alt="Taller Mecánico" 
+                        <img
+                            src="/TallerMecanico.png"
+                            alt="Taller JaFrauto Motor"
                             className="img-fluid shadow-lg"
-                            style={{ borderLeft: "8px solid #fa0606" }}
+                            style={{
+                                borderLeft: "8px solid #fa0606",
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "300px"
+                            }}
                         />
-                        <div className="bg-dark text-white p-3 position-absolute bottom-0 start-0 m-3 shadow">
-                            <h4 className="fw-bold mb-0 text-danger">+15 Años</h4>
-                            <p className="small mb-0">De Experiencia Real</p>
-                        </div>
                     </div>
                 </div>
             </div>

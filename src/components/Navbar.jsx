@@ -91,7 +91,7 @@ export const Navbar = () => {
             <NavLink
               to="/urgente"
               className={({ isActive }) =>
-                `btn fw-bold position-relative rounded-0 ${isActive ? "bg-danger text-white" : "btn-outline-danger"}`
+                `btn fw-bold position-relative rounded-0 pulse-urgente ${isActive ? "bg-danger text-white" : "btn-outline-danger"}`
               }
               style={{ transition: "0.3s" }}
             >
