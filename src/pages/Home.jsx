@@ -23,6 +23,23 @@ export const Home = () => {
         <div className="bg-light text-dark">
             {estiloPulso}
 
+            <div className="bg-danger py-2 shadow-sm" style={{ position: 'relative', zIndex: 10 }}>
+                <div className="container">
+                    <div className="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                        <span className="text-white fw-bold small text-uppercase d-none d-md-inline" style={{ letterSpacing: '1px' }}>
+                            Especialistas en:
+                        </span>
+                        <div className="d-flex align-items-center gap-3">
+                            <span className="text-white fw-black h6 mb-0">CITROËN</span>
+                            <span className="text-white opacity-50">|</span>
+                            <span className="text-white fw-black h6 mb-0">PEUGEOT</span>
+                            <span className="text-white opacity-50">|</span>
+                            <span className="text-white fw-black h6 mb-0">DS AUTOMOBILES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <section className="hero-section">
                 {/* 1. FONDO: Imagen del taller (Se adapta en móvil) */}
                 <div className="position-absolute top-0 end-0 h-100 w-100" style={{
@@ -34,7 +51,7 @@ export const Home = () => {
 
                 {/* 2. CAPA DIAGONAL IZQUIERDA (Sutil en móvil, fuerte en PC) */}
                 <div className="position-absolute top-0 start-0 h-100 w-100" style={{
-                    background: window.innerWidth > 992 
+                    background: window.innerWidth > 992
                         ? 'linear-gradient(115deg, rgba(26,26,26,1) 0%, rgba(26,26,26,0.9) 45%, rgba(26,26,26,0) 70%)'
                         : 'rgba(0,0,0,0.6)',
                     zIndex: 2

@@ -17,6 +17,7 @@ import { Promociones } from "./pages/Promociones";
 import { Urgente } from "./pages/Urgente";
 import { AccesoGestion } from "./pages/AccesoGestion";
 import { PanelInterno } from "./pages/PanelInterno";
+import { Cookies } from "./pages/Cookies";
 
 
 export const router = createBrowserRouter(
@@ -31,18 +32,21 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Home />} />
-        <Route path="*" element={<h1 className="d-flex justify-content-center align-items-center text-white vh-100">Error: 404 - Perdido en el espacio</h1>} />
-        <Route path= "/avisoLegal" element={<AvisoLegal />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/avisoLegal" element={<AvisoLegal />} />
         <Route path="/presupuesto" element={<Presupuesto />} />
-        <Route path= "/politicaPrivacidad" element={<PoliticaPrivacidad />} />
-        <Route path= "/servicios" element={<Servicios />} />
+        <Route path="/politicaPrivacidad" element={<PoliticaPrivacidad />} />
+        <Route path="/servicios" element={<Servicios />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path= "/taller" element={<Taller />} />
+        <Route path="/taller" element={<Taller />} />
         <Route path="/promociones" element={<Promociones />} />
         <Route path="/urgente" element={<Urgente />} />
         <Route path="/gestion" element={<AccesoGestion />} />
         <Route path="/panel-interno" element={<PanelInterno />} />
-      </Route>
+        <Route path="/cookies" element={<Cookies />} />
+
+        <Route path="*" element={<h1 className="d-flex justify-content-center align-items-center text-white vh-100">Error: 404</h1>} />
+        
+        </Route>
     )
 );

@@ -65,12 +65,13 @@ export const Footer = () => (
                         <div className="col-sm-6">
                             <div className="shadow-sm border border-secondary overflow-hidden mx-auto" style={{ borderRadius: "8px", maxWidth: "300px" }}>
                                 <iframe
-                                    src="https://www.google.com"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.864032769776!2d-3.7903449!3d37.7932261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6dd785dd31629f%3A0xdb2725b0e85794e2!2sJafrautomotor!5e0!3m2!1ses!2ses!4v1773799069849!5m2!1ses!2ses"
                                     width="100%"
-                                    height="110"
-                                    style={{ border: 0, display: "block" }}
-                                    allowFullScreen=""
-                                    loading="lazy">
+                                    height="100%"
+                                    style={{ border: 0, display: "block", minHeight: "110px" }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
                         </div>
@@ -83,7 +84,7 @@ export const Footer = () => (
                 <div className="row align-items-center">
                     <div className="col-md-7 text-center text-md-start">
                         <p className="small text-secondary mb-0">
-                            COPYRIGHT &nbsp; © {new Date().getFullYear()} JAFRAUTO MOTOR | <i className="fa-solid fa-wrench text-danger mx-1" />Desarrollo y diseño by Miguel C.
+                            COPYRIGHT &nbsp; © {new Date().getFullYear()} JAFRAUTO MOTOR | <i className="fa-solid fa-wrench text-danger mx-1" />Desarrollo y diseño Web realizado por Miguel Contreras.
                         </p>
                     </div>
                     <div className="col-md-5 text-center text-md-end mt-2 mt-md-0">

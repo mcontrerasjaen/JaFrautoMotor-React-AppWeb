@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { CookieBanner } from "../components/CookieBanner"; // Importación confirmada
 
 export const Layout = () => {
     return (
@@ -13,21 +14,25 @@ export const Layout = () => {
         }}>
             <ScrollToTop />
 
-            {/* HEADER SIEMPRE FIJO (Es lo normal para navegar rápido) */}
+            {/* HEADER SIEMPRE FIJO */}
             <header style={{ position: "fixed", top: 0, width: "100%", zIndex: 4000 }}>
                 <Navbar />
             </header>
 
-            {/* CONTENIDO PRINCIPAL: Ocupa todo el espacio disponible */}
+            {/* CONTENIDO PRINCIPAL */}
             <main style={{ 
-                flex: "1 0 auto",      /* Esto empuja el footer hacia abajo */
-                paddingTop: "100px",   /* Espacio para el Navbar */
-                paddingBottom: "50px"  /* Un margen sutil antes del footer */
+                flex: "1 0 auto",
+                paddingTop: "100px",
+                paddingBottom: "50px",
+                position: "relative"
             }}>
                 <Outlet />
             </main>
 
-            {/* FOOTER NATURAL: Ya no es fixed, aparece al final del scroll */}
+            {/* BANNER DE COOKIES: Aparece sobre el footer cuando es necesario */}
+            <CookieBanner />
+
+            {/* FOOTER NATURAL */}
             <footer style={{ 
                 backgroundColor: "#1a1a1a",
                 borderTop: "4px solid #fa0606",
@@ -36,7 +41,7 @@ export const Layout = () => {
                 <Footer />
             </footer>
 
-            {/* BOTÓN WHATSAPP: Lo dejamos fijo para que siempre puedan contactar */}
+            {/* BOTÓN WHATSAPP */}
             <a href="https://wa.me/659603058" className="btn-whatsapp shadow-lg">
                 <i className="fa-brands fa-whatsapp"></i>
             </a>
@@ -45,7 +50,7 @@ export const Layout = () => {
                 .btn-whatsapp {
                     position: fixed; 
                     right: 20px; 
-                    bottom: 30px; /* Ahora puede estar abajo del todo porque el footer no lo tapa */
+                    bottom: 30px; 
                     background: #25d366; 
                     color: white; 
                     border-radius: 50%;
@@ -56,6 +61,13 @@ export const Layout = () => {
                     transition: transform 0.3s ease;
                 }
                 .btn-whatsapp:hover { transform: scale(1.1); color: white; }
+                
+                /* Ajuste responsivo para que el banner de cookies no tape el botón en móviles */
+                @media (max-width: 768px) {
+                    .btn-whatsapp {
+                        bottom: 100px; /* Lo subimos temporalmente si el banner está activo */
+                    }
+                }
             `}</style>
         </div>
     );
