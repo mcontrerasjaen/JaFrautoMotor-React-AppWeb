@@ -1,3 +1,4 @@
+import urllib.parse 
 import os
 from flask import Flask, request, jsonify
 from flask_migrate import Migrate
@@ -5,11 +6,13 @@ from flask_cors import CORS
 from models import db, User, Appointment, Service
 
 app = Flask(__name__)
+CORS(app) 
 app.url_map.strict_slashes = False
 
 # CONFIGURACIÓN DE LA BASE DE DATOS (PostgreSQL)
 # Si estás en local, usa una URL de prueba, en producción usaremos la de Render/Railway
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "postgresql://postgres:26035618@localhost:5432/jafrautomotor")
+params = urllib.parse.quote_plus("26035618")
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+pg8000://postgres:26035618@127.0.0.1:5432/jafrautomotor"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 MIGRATE = Migrate(app, db)
@@ -53,5 +56,4 @@ def get_all_appointments():
     return jsonify(all_appointments), 200
 
 if __name__ == '__main__':
-    PORT = int(os.environ.get('PORT', 3001))
-    app.run(host='0.0.0.0', port=PORT, debug=True)
+       app.run(host='127.0.0.1', port=3001, debug=True)

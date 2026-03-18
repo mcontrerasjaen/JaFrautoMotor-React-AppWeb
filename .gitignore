@@ -25,7 +25,8 @@ dist-ssr
 *.sw?
 
 venv/
+node_modules/
+dist/
 __pycache__/
-*.pyc
+*.db
 .env
-instance/
