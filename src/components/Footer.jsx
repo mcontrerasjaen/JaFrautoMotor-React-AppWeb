@@ -25,7 +25,7 @@ export const Footer = () => (
                     <h6 className="fw-bold text-uppercase text-danger mb-4">Menú</h6>
                     <ul className="list-unstyled small">
                         <li className="mb-2"><Link to="/" className="text-secondary text-decoration-none hover-red">Inicio</Link></li>
-                        <li className="mb-2"><Link to="/taller" className="text-secondary text-decoration-none hover-red">El Taller</Link></li>
+                        <li className="mb-2"><Link to="/taller" className="text-secondary text-decoration-none hover-red">Taller</Link></li>
                         <li className="mb-2"><Link to="/servicios" className="text-secondary text-decoration-none hover-red">Servicios</Link></li>
                         <li className="mb-2"><Link to="/presupuesto" className="text-secondary text-decoration-none hover-red">Presupuesto</Link></li>
                         <li className="mb-2"><Link to="/contacto" className="text-secondary text-decoration-none hover-red">Contacto</Link></li>

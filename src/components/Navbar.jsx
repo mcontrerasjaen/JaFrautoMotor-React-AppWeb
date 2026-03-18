@@ -65,7 +65,7 @@ export const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink to="/taller" className={({ isActive }) =>
-                `nav-link fw-bold ${isActive ? "text-danger" : "text-black"}`}>EL TALLER</NavLink>
+                `nav-link fw-bold ${isActive ? "text-danger" : "text-black"}`}>TALLER</NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/servicios" className={({ isActive }) =>
